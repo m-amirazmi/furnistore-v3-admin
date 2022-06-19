@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { fetchUser, userSelector } from './redux/features/userSlice';
+import { routes } from './utils/routes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+	const dispatch = useDispatch();
+	const { user, loading, userToken } = useSelector(userSelector);
+
+	useEffect(() => {
+		const token = userToken || localStorage.getItem('token');
+		if (token) dispatch(fetchUser(token));
+	}, [dispatch, userToken]);
+
+	if (loading) return null;
+	return (
+		<BrowserRouter>
+			<Routes>
+				{routes.map(({ path, isProtected, component: Component }) => {
+					const Element = isProtected && !user.status ? <Navigate to="/login" /> : <Component />;
+					return <Route key={path} path={path} element={Element} />;
+				})}
+			</Routes>
+		</BrowserRouter>
+	);
 }
-
-export default App;

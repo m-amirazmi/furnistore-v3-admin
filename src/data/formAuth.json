@@ -1,0 +1,78 @@
+{
+	"loginForm": [
+		{
+			"name": "email",
+			"label": "Email",
+			"type": "email",
+			"placeholder": "eg: merazmi@email.com",
+			"isRequired": true,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "password",
+			"label": "Password",
+			"type": "password",
+			"placeholder": "eg: 12345678",
+			"isRequired": true,
+			"role": "textbox",
+			"testQueryMethod": "ByLabelText"
+		}
+	],
+	"registerForm": [
+		{
+			"name": "first_name",
+			"label": "First Name",
+			"type": "text",
+			"placeholder": "eg: Muhamad Amir",
+			"isRequired": false,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "last_name",
+			"label": "Last Name",
+			"type": "text",
+			"placeholder": "eg: Azmi",
+			"isRequired": false,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "phone_number",
+			"label": "Phone Number",
+			"type": "text",
+			"placeholder": "eg: +601119821105",
+			"isRequired": false,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "email",
+			"label": "Email",
+			"type": "email",
+			"placeholder": "eg: merazmi@email.com",
+			"isRequired": true,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "password",
+			"label": "Password",
+			"type": "password",
+			"placeholder": "eg: 12345678",
+			"isRequired": true,
+			"role": "textbox",
+			"testQueryMethod": "ByLabelText"
+		},
+		{
+			"name": "confirm_password",
+			"label": "Confirm Password",
+			"type": "password",
+			"placeholder": "eg: 12345678",
+			"isRequired": true,
+			"role": "textbox",
+			"testQueryMethod": "ByLabelText"
+		}
+	]
+}
