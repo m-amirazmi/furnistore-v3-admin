@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 
-export default function Products() {
+export default function Categories() {
 	const navigate = useNavigate();
 	const { pathname } = useLocation();
 
@@ -12,7 +12,7 @@ export default function Products() {
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="self-end">
-				<Button handleClick={handleAddProduct} name="Add Product" />
+				<Button handleClick={handleAddProduct} name="Add Category" />
 			</div>
 			<div className="h-96 rounded-xl bg-white"></div>
 		</div>

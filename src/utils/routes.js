@@ -1,4 +1,6 @@
 import NotFound from '../pages/404';
+import Categories from '../pages/Categories';
+import CategoriesCreate from '../pages/CategoriesCreate';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Products from '../pages/Products';
@@ -32,6 +34,11 @@ export const routes = [
 		component: Products,
 		isProtected: true,
 		roles: ['Product'],
+		subpath: [
+			{ path: '', name: 'Products', component: Products, isProtected: true, roles: ['Product'] },
+			{ path: '/categories', name: 'Categories', component: Categories, isProtected: true, roles: ['Product'] },
+			{ path: '/categories/create', name: 'Create Category', component: CategoriesCreate, isProtected: true, roles: ['Product'] },
+		],
 	},
 	{
 		path: '*',

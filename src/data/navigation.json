@@ -16,7 +16,7 @@
 		"subpath": [
 			{
 				"page": "Products",
-				"path": "/",
+				"path": "",
 				"roles": ["Product"]
 			},
 			{

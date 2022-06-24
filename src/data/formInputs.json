@@ -1,0 +1,32 @@
+{
+	"category": [
+		{
+			"name": "name",
+			"label": "Category Name",
+			"type": "text",
+			"placeholder": "eg: sofa",
+			"isRequired": true,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "description",
+			"label": "Category Description",
+			"type": "textarea",
+			"placeholder": "eg: this is a good...",
+			"isRequired": false,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		},
+		{
+			"name": "images",
+			"label": "Category Images",
+			"type": "file",
+			"multiple": true,
+			"accept": "image/*",
+			"isRequired": false,
+			"role": "textbox",
+			"testQueryMethod": "ByRole"
+		}
+	]
+}
