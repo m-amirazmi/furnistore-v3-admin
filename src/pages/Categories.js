@@ -1,12 +1,22 @@
+import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
+import { category } from '../utils/api';
 
 export default function Categories() {
 	const navigate = useNavigate();
 	const { pathname } = useLocation();
 
-	const handleAddProduct = () => {
-		navigate(pathname + '/create');
+	const handleAddProduct = () => navigate(pathname + '/create');
+
+	useEffect(() => {
+		getCategories();
+	}, []);
+
+	const getCategories = async () => {
+		const fetchCategories = await category({ method: 'get' });
+		console.log(fetchCategories);
+		return fetchCategories;
 	};
 
 	return (

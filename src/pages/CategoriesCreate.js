@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import CategoryForm from '../components/Categories/CategoryForm';
@@ -38,10 +38,8 @@ export default function CategoriesCreate() {
 				const res = await upload({ input: image });
 				images.push(res);
 			}
-
 			eachInput.images = images;
-			const res = await category({ body: eachInput });
-			console.log(res);
+			await category({ body: eachInput, method: 'post' });
 		}
 		navigate('/products/categories');
 		setInput([{ name: '', description: '', images: [] }]);

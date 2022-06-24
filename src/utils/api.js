@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = process.env.REACT_APP_API;
 
-export const fetchApi = async ({ endpoint, method, body, token, type }) => {
+export const fetchApi = async ({ endpoint, method, body, token = localStorage.getItem('token'), type }) => {
 	try {
 		const { data } = await axios({
 			method,
@@ -41,6 +41,6 @@ export const upload = async ({ input }) => {
 	return await fetchApi({ endpoint: api.upload, body: formData, method: 'post', type: 'form' });
 };
 
-export const category = async ({ body }) => {
-	return await fetchApi({ endpoint: api.categories, body, method: 'post' });
+export const category = async ({ body, method, id = '' }) => {
+	return await fetchApi({ endpoint: `${api.categories}/${id}`, body, method });
 };
