@@ -1,3 +1,4 @@
+import Button from '../Button';
 import AuthMessageError from './AuthMessageError';
 
 export default function AuthForm({ input, handleInput, formInputs, submit, errorMessage }) {
@@ -22,9 +23,7 @@ export default function AuthForm({ input, handleInput, formInputs, submit, error
 
 			<AuthMessageError message={errorMessage} />
 
-			<button className="mt-2 w-full rounded-lg bg-fuchsia-600 py-2 text-white hover:bg-fuchsia-500" onClick={submit.handleSubmit}>
-				{submit.name}
-			</button>
+			<Button handleClick={submit.handleSubmit} name={submit.name} />
 		</div>
 	);
 }
