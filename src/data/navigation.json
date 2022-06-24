@@ -1,0 +1,93 @@
+[
+	{
+		"page": "Dashboard",
+		"path": "/",
+		"roles": ["Staff", "Admin", "Product", "Content"]
+	},
+	{
+		"page": "Orders",
+		"path": "/orders",
+		"roles": ["Product"]
+	},
+	{
+		"page": "Manage Products",
+		"path": "/products",
+		"roles": ["Product"],
+		"subpath": [
+			{
+				"page": "Products",
+				"path": "/",
+				"roles": ["Product"]
+			},
+			{
+				"page": "Categories",
+				"path": "/categories",
+				"roles": ["Product"]
+			},
+			{
+				"page": "Reviews",
+				"path": "/reviews",
+				"roles": ["Product"]
+			},
+			{
+				"page": "Launches",
+				"path": "/launches",
+				"roles": ["Product"]
+			}
+		]
+	},
+	{
+		"page": "Contents",
+		"path": "/contents",
+		"roles": ["Content"],
+		"subpath": [
+			{
+				"page": "Homepage",
+				"path": "/homepage",
+				"roles": ["Content"]
+			},
+			{
+				"page": "Country & Currency",
+				"path": "/country-currency",
+				"roles": ["Content"]
+			},
+			{
+				"page": "About US",
+				"path": "/about-us",
+				"roles": ["Content"]
+			},
+			{
+				"page": "Privacy Policy",
+				"path": "/privacy-policy",
+				"roles": ["Content"]
+			},
+			{
+				"page": "Cookie Policy",
+				"path": "/cookie-policy",
+				"roles": ["Content"]
+			}
+		]
+	},
+	{
+		"page": "Settings",
+		"path": "/settings",
+		"roles": ["Admin", "Content"],
+		"subpath": [
+			{
+				"page": "Store Details",
+				"path": "/store-details",
+				"roles": ["Admin", "Content"]
+			},
+			{
+				"page": "Staff Management",
+				"path": "/staff-management",
+				"roles": ["Admin"]
+			},
+			{
+				"page": "About US",
+				"path": "/about-us",
+				"roles": ["Content"]
+			}
+		]
+	}
+]

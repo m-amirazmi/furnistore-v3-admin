@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import AppTitle from '../AppTitle';
 
 export default function AuthHeader({ text }) {
 	const { pathname } = useLocation();
@@ -7,10 +8,7 @@ export default function AuthHeader({ text }) {
 	return (
 		<div>
 			<div className="flex flex-col items-center justify-between md:flex-row">
-				<h1 className="flex items-center gap-2 text-2xl">
-					<span className=" text-gray-700">Furnistore</span>
-					<span className="italic text-fuchsia-600">Admin</span>
-				</h1>
+				<AppTitle />
 				<p className="mt-2 flex gap-1 text-sm md:mt-0">
 					<span
 						onClick={() => navigate('/login')}

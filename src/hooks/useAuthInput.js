@@ -5,7 +5,7 @@ import { fetchUser, setUserToken, userSelector } from '../redux/features/userSli
 import { auth } from '../utils/api';
 
 export default function useAuthInput({ errorCheck, redirect }) {
-	const [input, setInput] = useState({});
+	const [input, setInput] = useState({ email: 'johndoe@email.com', password: '12345678' });
 	const [errorMessage, setErrorMessage] = useState('');
 	const [successMessage, setSuccessMessage] = useState('');
 

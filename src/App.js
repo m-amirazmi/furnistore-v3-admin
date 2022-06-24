@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import MainLayout from './components/Layouts/MainLayout';
 import { fetchUser, userSelector } from './redux/features/userSlice';
 import { routes } from './utils/routes';
 
@@ -19,7 +20,19 @@ export default function App() {
 			<Routes>
 				{routes.map(({ path, isProtected, component: Component }) => {
 					const Element = isProtected && !user.status ? <Navigate to="/login" /> : <Component />;
-					return <Route key={path} path={path} element={Element} />;
+					return (
+						<Route
+							key={path}
+							path="/"
+							element={
+								<MainLayout>
+									<Outlet />
+								</MainLayout>
+							}
+						>
+							<Route key={path} path={path} element={Element} />
+						</Route>
+					);
 				})}
 			</Routes>
 		</BrowserRouter>
