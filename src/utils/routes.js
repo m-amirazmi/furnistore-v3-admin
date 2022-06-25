@@ -4,6 +4,7 @@ import CategoriesCreate from '../pages/CategoriesCreate';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Products from '../pages/Products';
+import ProductsCreate from '../pages/ProductsCreate';
 import Register from '../pages/Register';
 
 export const routes = [
@@ -36,6 +37,7 @@ export const routes = [
 		roles: ['Product'],
 		subpath: [
 			{ path: '', name: 'Products', component: Products, isProtected: true, roles: ['Product'] },
+			{ path: '/create', name: 'Create Product', component: ProductsCreate, isProtected: true, roles: ['Product'] },
 			{ path: '/categories', name: 'Categories', component: Categories, isProtected: true, roles: ['Product'] },
 			{ path: '/categories/create', name: 'Create Category', component: CategoriesCreate, isProtected: true, roles: ['Product'] },
 		],

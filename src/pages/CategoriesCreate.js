@@ -1,50 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
-import CategoryForm from '../components/Categories/CategoryForm';
-import { category, upload } from '../utils/api';
+import CreateForm from '../components/Form/CreateForm';
+import useCreateInput from '../hooks/useCreateInput';
+import { category } from '../utils/api';
+import formInputs from '../data/formInputs.json';
+const { category: categoryInputs } = formInputs;
 
 export default function CategoriesCreate() {
-	const [input, setInput] = useState([{ name: '', description: '', images: [] }]);
-	const [showInputs, setShowInputs] = useState([]);
-	const [loading, setLoading] = useState(false);
-
-	const navigate = useNavigate();
-
-	const handleInput = ({ currentTarget }, key) => {
-		const copyInputs = [...input];
-		if (currentTarget.id === 'images') copyInputs[key][currentTarget.id] = currentTarget.files;
-		else copyInputs[key][currentTarget.id] = currentTarget.value;
-		setInput(copyInputs);
-	};
-
-	const handleAddInput = () => {
-		const copyInputs = [...input];
-		copyInputs.push({ name: '', description: '', images: [] });
-		setInput(copyInputs);
-	};
-
-	const handleShow = (id) => {
-		const copyShowInputs = [...showInputs];
-		copyShowInputs[id] = !copyShowInputs[id];
-		setShowInputs(copyShowInputs);
-	};
-
-	const handleSubmit = async () => {
-		setLoading(true);
-		for (const [i, eachInput] of input.entries()) {
-			const images = [];
-			for (const image of eachInput.images) {
-				const res = await upload({ input: image });
-				images.push(res);
-			}
-			eachInput.images = images;
-			await category({ body: eachInput, method: 'post' });
-		}
-		navigate('/products/categories');
-		setInput([{ name: '', description: '', images: [] }]);
-		setLoading(false);
-	};
+	const inputForm = { name: '', description: '', images: [] };
+	const { input, loading, showInputs, handleInput, handleAddInput, handleShow, handleSubmit } = useCreateInput({ inputForm, redirect: '/products/categories', save: category });
 
 	return (
 		<div>
@@ -56,7 +19,7 @@ export default function CategoriesCreate() {
 			<div className="mt-8 rounded-xl bg-white py-4 px-8">
 				{input.map((i, key) => (
 					<div key={key} className={key + 1 !== input.length && 'border-b'}>
-						<CategoryForm key={key} input={i} handleInput={handleInput} id={key} handleShow={handleShow} show={showInputs[key]} />
+						<CreateForm type="Category" key={key} input={i} inputs={categoryInputs} id={key} handleInput={handleInput} handleShow={handleShow} show={showInputs[key]} />
 						{key + 1 === input.length && (
 							<div className="mb-4 flex w-3/12 gap-4">
 								<Button name={loading ? 'Loading...' : 'Submit Category'} handleClick={handleSubmit} />

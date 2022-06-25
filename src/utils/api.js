@@ -28,6 +28,7 @@ export const api = {
 	getUser: API + '/users',
 	upload: API + '/upload',
 	categories: API + '/categories',
+	products: API + '/products',
 };
 
 export const auth = async ({ input, page }) => {
@@ -43,4 +44,8 @@ export const upload = async ({ input }) => {
 
 export const category = async ({ body, method, id = '' }) => {
 	return await fetchApi({ endpoint: `${api.categories}/${id}`, body, method });
+};
+
+export const products = async ({ body, method, id = '' }) => {
+	return await fetchApi({ endpoint: `${api.products}/${id}`, body, method });
 };

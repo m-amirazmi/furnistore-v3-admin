@@ -13,9 +13,11 @@ export default function MainLayout({ children }) {
 			<Sidebar />
 			<div className="w-10/12 bg-gray-100">
 				<div className="p-8">
-					<div className="flex justify-end gap-4">
-						<div>Welcome</div>
-						<div className="cursor-pointer" onClick={handleLogout}>
+					<div className="flex items-center justify-end gap-4">
+						<div>
+							Welcome, {user.first_name} {user.last_name}
+						</div>
+						<div className="cursor-pointer rounded-lg border border-fuchsia-400 py-1 px-3 text-fuchsia-500" onClick={handleLogout}>
 							Logout
 						</div>
 					</div>

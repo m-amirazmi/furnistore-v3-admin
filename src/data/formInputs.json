@@ -6,8 +6,7 @@
 			"type": "text",
 			"placeholder": "eg: sofa",
 			"isRequired": true,
-			"role": "textbox",
-			"testQueryMethod": "ByRole"
+			"table": true
 		},
 		{
 			"name": "description",
@@ -15,8 +14,7 @@
 			"type": "textarea",
 			"placeholder": "eg: this is a good...",
 			"isRequired": false,
-			"role": "textbox",
-			"testQueryMethod": "ByRole"
+			"table": false
 		},
 		{
 			"name": "images",
@@ -25,8 +23,111 @@
 			"multiple": true,
 			"accept": "image/*",
 			"isRequired": false,
-			"role": "textbox",
-			"testQueryMethod": "ByRole"
+			"table": true
+		},
+		{
+			"name": "is_enabled",
+			"label": "Is Enabled",
+			"type": "checkbox",
+			"isRequired": false,
+			"table": true
+		},
+		{
+			"name": "is_featured",
+			"label": "Is Featured",
+			"type": "checkbox",
+			"isRequired": false,
+			"table": true
+		}
+	],
+	"product": [
+		{
+			"name": "images",
+			"label": "Product Images",
+			"type": "file",
+			"multiple": true,
+			"accept": "image/*",
+			"isRequired": false,
+			"table": true
+		},
+		{
+			"name": "category",
+			"label": "Product Category",
+			"type": "select",
+			"placeholder": "eg: xiaomi",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "name",
+			"label": "Product Name",
+			"type": "text",
+			"placeholder": "eg: Big New Sofa",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "description",
+			"label": "Product Description",
+			"type": "textarea",
+			"placeholder": "eg: this is a good...",
+			"isRequired": false,
+			"table": false
+		},
+
+		{
+			"name": "sku",
+			"label": "Product SKU",
+			"type": "text",
+			"placeholder": "eg: 2340970240",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "price",
+			"label": "Product Price",
+			"type": "number",
+			"placeholder": "eg: 20.99",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "discounted_price",
+			"label": "Product Discounted Price",
+			"type": "number",
+			"placeholder": "eg: 10.99",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "quantity",
+			"label": "Product Quantity",
+			"type": "number",
+			"placeholder": "eg: 100",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "vendor",
+			"label": "Product Vendor",
+			"type": "text",
+			"placeholder": "eg: xiaomi",
+			"isRequired": true,
+			"table": true
+		},
+		{
+			"name": "is_enabled",
+			"label": "Is Enabled",
+			"type": "checkbox",
+			"isRequired": false,
+			"table": true
+		},
+		{
+			"name": "is_featured",
+			"label": "Is Featured",
+			"type": "checkbox",
+			"isRequired": false,
+			"table": true
 		}
 	]
 }
